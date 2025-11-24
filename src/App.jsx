@@ -164,78 +164,100 @@ const Home = () => {
   return (
     <>
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-[#F0F7FF]">
-        {/* Background Blobs */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute -top-[10%] -left-[10%] w-[50%] h-[50%] bg-blue-200/30 rounded-full blur-3xl" />
-          <div className="absolute top-[20%] right-[10%] w-[30%] h-[30%] bg-indigo-200/30 rounded-full blur-3xl" />
-        </div>
+      {/* Background Grid & Blobs */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-[0.4] pointer-events-none" />
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div className="absolute -top-[10%] -left-[10%] w-[60%] h-[60%] bg-blue-200/40 rounded-full blur-[120px]" />
+        <div className="absolute top-[20%] right-[10%] w-[40%] h-[40%] bg-indigo-200/40 rounded-full blur-[100px]" />
+      </div>
 
-        <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="text-5xl lg:text-7xl font-bold text-[#002B6B] leading-tight mb-6">
-              We Build Brands <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0056D2] to-cyan-500">That Scale.</span>
-            </h1>
-            <p className="text-lg text-slate-600 mb-8 max-w-lg leading-relaxed">
-              Your end-to-end digital growth partner. From strategy to execution, we deliver results that matter.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <a href="#contact" className="px-8 py-4 bg-[#0056D2] text-white rounded-full font-semibold hover:bg-[#0044A8] transition-all shadow-xl shadow-blue-500/30 flex items-center gap-2 group">
-                Start Project <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </a>
-              <a href="#portfolio" className="px-8 py-4 bg-white text-[#002B6B] border border-slate-200 rounded-full font-semibold hover:bg-slate-50 transition-all">
-                View Portfolio
-              </a>
-            </div>
-          </motion.div>
+      <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <div className="inline-block px-4 py-2 bg-blue-100/50 rounded-full text-[#0056D2] font-semibold text-sm mb-6 border border-blue-200/50 backdrop-blur-sm">
+            🚀 Elevate Your Digital Presence
+          </div>
+          <h1 className="text-5xl lg:text-7xl font-bold text-[#002B6B] leading-[1.1] mb-6 tracking-tight">
+            We Build Brands <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0056D2] via-cyan-500 to-blue-600 animate-gradient-x">That Scale.</span>
+          </h1>
+          <p className="text-lg md:text-xl text-slate-600 mb-10 max-w-lg leading-relaxed font-light">
+            Your end-to-end digital growth partner. From strategy to execution, we deliver results that matter.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <a href="#contact" className="px-8 py-4 bg-[#0056D2] text-white rounded-full font-semibold hover:bg-[#0044A8] transition-all shadow-xl shadow-blue-500/30 flex items-center gap-2 group hover:-translate-y-1">
+              Start Project <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </a>
+            <a href="#portfolio" className="px-8 py-4 bg-white/80 backdrop-blur-sm text-[#002B6B] border border-slate-200 rounded-full font-semibold hover:bg-white hover:border-blue-200 transition-all hover:shadow-lg">
+              View Portfolio
+            </a>
+          </div>
+        </motion.div>
 
-          {/* Abstract 3D Composition */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative h-[400px] lg:h-[500px] flex items-center justify-center"
-          >
-            <div className="relative w-full h-full max-w-md">
-              {/* Floating Cards */}
-              <motion.div 
-                animate={{ y: [0, -20, 0] }}
-                transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-                className="absolute top-10 left-10 w-48 h-48 bg-white/40 backdrop-blur-xl border border-white/50 rounded-2xl shadow-2xl z-20 flex items-center justify-center"
-              >
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-[#0056D2]">150+</div>
-                  <div className="text-sm text-[#002B6B]">Projects Delivered</div>
+        {/* Abstract 3D Composition */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="relative h-[400px] lg:h-[500px] flex items-center justify-center perspective-1000"
+        >
+          <div className="relative w-full h-full max-w-md">
+            {/* Main Glass Card */}
+            <motion.div 
+              animate={{ y: [0, -15, 0], rotateX: [0, 5, 0], rotateY: [0, 5, 0] }}
+              transition={{ repeat: Infinity, duration: 8, ease: "easeInOut" }}
+              className="absolute top-10 left-10 w-64 h-64 bg-white/10 backdrop-blur-md border border-white/40 rounded-3xl shadow-2xl z-20 flex flex-col items-center justify-center overflow-hidden group"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent opacity-50" />
+              <div className="relative z-10 text-center p-6">
+                <div className="text-5xl font-bold text-[#0056D2] mb-2">150+</div>
+                <div className="text-sm font-medium text-[#002B6B] uppercase tracking-wider">Projects Delivered</div>
+              </div>
+            </motion.div>
+            
+            {/* Secondary Card */}
+            <motion.div 
+              animate={{ y: [0, 20, 0], x: [0, -10, 0] }}
+              transition={{ repeat: Infinity, duration: 7, ease: "easeInOut", delay: 1 }}
+              className="absolute bottom-20 right-0 w-64 h-40 bg-gradient-to-br from-[#0056D2] to-[#002B6B] rounded-3xl shadow-2xl z-30 flex items-center justify-center p-6 border border-white/10"
+            >
+              <div className="flex items-center gap-5">
+                <div className="bg-white/20 p-4 rounded-2xl backdrop-blur-sm">
+                  <LineChart className="text-white w-8 h-8" />
                 </div>
-              </motion.div>
-              
-              <motion.div 
-                animate={{ y: [0, 20, 0] }}
-                transition={{ repeat: Infinity, duration: 7, ease: "easeInOut", delay: 1 }}
-                className="absolute bottom-20 right-10 w-56 h-32 bg-gradient-to-br from-[#0056D2] to-[#002B6B] rounded-2xl shadow-2xl z-30 flex items-center justify-center p-6"
-              >
-                <div className="flex items-center gap-4">
-                  <div className="bg-white/20 p-3 rounded-full">
-                    <LineChart className="text-white w-6 h-6" />
-                  </div>
-                  <div>
-                    <div className="text-white font-bold text-lg">+240%</div>
-                    <div className="text-blue-100 text-xs">Avg. ROI Growth</div>
-                  </div>
+                <div>
+                  <div className="text-white font-bold text-2xl">+240%</div>
+                  <div className="text-blue-100 text-xs font-medium uppercase tracking-wide">Avg. ROI Growth</div>
                 </div>
-              </motion.div>
+              </div>
+            </motion.div>
 
-              {/* Decorative Elements */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-blue-400/20 rounded-full blur-3xl -z-10" />
-              <div className="absolute top-0 right-0 w-24 h-24 bg-cyan-400/20 rounded-full blur-2xl" />
-            </div>
-          </motion.div>
-        </div>
-      </section>
+            {/* Floating Elements */}
+            <motion.div 
+              animate={{ y: [0, -10, 0], x: [0, 10, 0] }}
+              transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 0.5 }}
+              className="absolute top-0 right-10 bg-white p-3 rounded-2xl shadow-lg z-10"
+            >
+              <Code className="w-6 h-6 text-cyan-500" />
+            </motion.div>
+            <motion.div 
+              animate={{ y: [0, 15, 0], x: [0, -5, 0] }}
+              transition={{ repeat: Infinity, duration: 6, ease: "easeInOut", delay: 1.5 }}
+              className="absolute bottom-10 left-0 bg-white p-3 rounded-2xl shadow-lg z-40"
+            >
+              <Smartphone className="w-6 h-6 text-purple-500" />
+            </motion.div>
+
+            {/* Decorative Elements */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-blue-400/20 rounded-full blur-[80px] -z-10 mix-blend-multiply" />
+            <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-400/20 rounded-full blur-[60px]" />
+          </div>
+        </motion.div>
+      </div>
+    </section>
 
       <div className="py-10 border-y border-slate-100 bg-white">
         <div className="container mx-auto px-6">
@@ -281,7 +303,7 @@ const Home = () => {
           <div className="relative">
             <div className="absolute inset-0 bg-[#0056D2] rounded-3xl rotate-3 opacity-10" />
             <img 
-              src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800" 
+              src="/why-us.png" 
               alt="Team meeting" 
               className="relative rounded-3xl shadow-2xl w-full object-cover h-[400px] md:h-[500px]"
             />
